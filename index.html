@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Maurya English Institute Jehanabad - Premium English coaching with expert faculty, comprehensive courses, and proven results">
+    <title>Maurya English Institute - Premium UI with Hero Video</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #071025;
+            --muted: rgba(230, 238, 248, 0.7);
+            --accent-1: #FFD166;
+            /* warm gold */
+            --accent-2: #06b6d4;
+            /* aqua */
+            --accent-3: #7c3aed;
+            /* violet */
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+            background: linear-gradient(180deg, var(--bg), #03111a);
+            color: #e6eef8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem
+        }
+
+        /* Header */
+        header.main-header {
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            backdrop-filter: blur(6px);
+            background: linear-gradient(90deg, rgba(3, 7, 18, 0.6), rgba(6, 10, 26, 0.5));
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.8rem 1rem
+        }
+
+        .brand .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--accent-1);
+            font-weight: 700
+        }
+
+        nav.main-nav {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center
+        }
+
+        nav.main-nav a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 0.45rem 0.75rem;
+            border-radius: 8px;
+            font-weight: 600
+        }
+
+        nav.main-nav a:hover {
+            background: linear-gradient(90deg, rgba(255, 209, 102, 0.06), rgba(124, 58, 237, 0.04));
+            color: var(--accent-1)
+        }
+
+        .cta {
+            background: linear-gradient(90deg, var(--accent-1), #ffb84d);
+            color: #071025;
+            padding: 0.45rem 0.75rem;
+            border-radius: 10px;
+            font-weight: 700
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 0;
+            color: var(--muted);
+            font-size: 1.2rem
+        }
+
+        /* HERO with background video */
+        .hero-viewport {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center
+        }
+
+        .hero-video-wrap {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0
+        }
+
+        .hero-video-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.45) contrast(0.95) saturate(0.95)
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0.45), rgba(2, 6, 23, 0.55));
+            z-index: 1
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap
+        }
+
+        .hero-left {
+            flex: 1;
+            min-width: 260px
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent-3), var(--accent-2));
+            padding: 0.35rem 0.6rem;
+            border-radius: 999px;
+            color: #071025;
+            font-weight: 700;
+            font-size: 0.82rem
+        }
+
+        h1.hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #fff;
+            margin: 0.6rem 0;
+            line-height: 1.02
+        }
+
+        p.lead {
+            color: rgba(230, 238, 248, 0.9);
+            max-width: 56ch
+        }
+
+        /* Counters (prominent) */
+        .hero-stats {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap
+        }
+
+        .stat {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            min-width: 150px;
+            text-align: center
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.6rem;
+            color: var(--accent-1)
+        }
+
+        .stat span {
+            display: block;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+            color: #071025;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            font-weight: 800;
+            text-decoration: none
+        }
+
+        .btn-ghost {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 700
+        }
+
+        /* Right column small card */
+        .hero-right {
+            width: 320px;
+            min-width: 240px
+        }
+
+        .mini-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+            padding: 1rem;
+            border-radius: 14px;
+            border: 1px solid var(--glass-border)
+        }
+
+        /* Rest of sections keep similar style */
+        .media-section {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem auto;
+            padding: 0 1rem
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 840px;
+            margin: 0 auto
+        }
+
+        .slides {
+            display: flex;
+            overflow: hidden;
+            border-radius: 12px
+        }
+
+        .slides img {
+            width: 240px;
+            height: 160px;
+            object-fit: cover;
+            flex-shrink: 0;
+            margin-left: px;
+        }
+
+        .batch-section,
+        .features-section,
+        .contact-section {
+            max-width: var(--max-width);
+            margin: 1.25rem auto;
+            padding: 1rem;
+            border-radius: 12px
+        }
+
+        footer.footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(230, 238, 248, 0.6);
+            font-size: 0.9rem
+        }
+
+        .float-contact {
+            position: fixed;
+            right: 20px;
+            bottom: 22px;
+            background: linear-gradient(90deg, #25D366, #128C7E);
+            color: white;
+            padding: 0.9rem;
+            border-radius: 999px;
+            box-shadow: 0 18px 40px rgba(2, 6, 23, 0.6);
+            z-index: 1400
+        }
+
+        /* Responsive */
+        @media(max-width:980px) {
+            .hero-content {
+                padding: 1rem
+            }
+
+            nav.main-nav {
+                display: none
+            }
+
+            .menu-toggle {
+                display: inline-flex
+            }
+
+            .hero-right {
+                width: 100%
+            }
+        }
+
+        @media(max-width:480px) {
+            h1.hero-title {
+                font-size: 1.5rem
+            }
+
+            .stat strong {
+                font-size: 1.4rem
+            }
+
+            .slides img {
+                width: 180px;
+                height: 120px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="nav-inner container">
+            <div class="brand">
+                <div class="logo">Maurya English Institute</div>
+                <div class="sub" style="color:var(--muted);font-size:0.8rem">Jehanabad • Excellence in English</div>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="#batchesTiming">Batches</a>
+                <a href="#features">Courses</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a class="cta" href="https://forms.gle/yFng81EXos8CEryP7" target="_blank" rel="noopener">Apply Now</a>
+            </nav>
+
+            <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+        </div>
+
+        <!-- Mobile Nav Drawer -->
+        <div id="mobileNav"
+            style="display:none;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:1rem;border-top:1px solid rgba(255,255,255,0.02)">
+            <div style="display:flex;flex-direction:column;gap:0.45rem;max-width:var(--max-width);margin:0 auto">
+                <a href="#batchesTiming"
+                    style="padding:0.7rem;border-radius:8px;color:var(--muted);text-decoration:none">Batches</a>
+                <a href="#features"
+                    style="padding:0.7rem;border-radius:8px;color:var(--muted);text-decoration:none">Courses</a>
+                <a href="#about"
+                    style="padding:0.7rem;border-radius:8px;color:var(--muted);text-decoration:none">About</a>
+                <a href="#contact"
+                    style="padding:0.7rem;border-radius:8px;color:var(--muted);text-decoration:none">Contact</a>
+                <a href="https://forms.gle/yFng81EXos8CEryP7" target="_blank" rel="noopener"
+                    style="padding:0.7rem;border-radius:8px;background:linear-gradient(90deg,var(--accent-2),var(--accent-3));color:#071025;font-weight:800;text-decoration:none">Apply
+                    Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO with background video (uses your vid.mp4) -->
+    <section class="hero-viewport">
+        <div class="hero-video-wrap" aria-hidden>
+            <video id="bgVideo" autoplay muted loop playsinline>
+                <source src="vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container">
+            <div class="hero-inner">
+                <div class="hero-left">
+                    <span class="eyebrow">Premium English Coaching</span>
+                    <h1 class="hero-title">Welcome to <span style="color:var(--accent-1)">Maurya English
+                            Institute</span> — Jehanabad</h1>
+                    <p class="lead">Small batches • Personal attention • Exam-focused strategies for Class 11–12 and
+                        competitive aspirants.</p>
+
+                    <!-- Achievement Counters -->
+                    <div class="hero-stats" role="list" aria-label="Achievements">
+                        <div class="stat" role="listitem">
+                            <strong id="c1">0</strong>
+                            <span>Students Trained</span>
+                        </div>
+                        <div class="stat" role="listitem">
+                            <strong id="c2">0</strong>
+                            <span>Monthly Tests</span>
+                        </div>
+                        <div class="stat" role="listitem">
+                            <strong id="c3">0</strong>
+                            <span>Years Experience</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a class="btn-primary" href="#contact">Book a Call</a>
+                        <a class="btn-ghost" href="https://forms.gle/yFng81EXos8CEryP7" target="_blank"
+                            rel="noopener">Apply Now</a>
+                    </div>
+                </div>
+
+                <aside class="hero-right">
+                    <div class="mini-card">
+                        <strong style="color:var(--accent-2)">Sunday Marathon</strong>
+                        <p style="color:var(--muted);margin-top:0.4rem">4 Hours Intensive classes — chapter-wise deep
+                            dives and doubt sessions.</p>
+                        <div style="margin-top:0.8rem;display:flex;gap:0.5rem">
+                            <a class="btn-primary" href="#batchesTiming">View Batches</a>
+                            <a class="btn-ghost" href="mailto:mauryaenglish@gmail.com">Email</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media + slider -->
+    <section class="media-section container">
+        <div class="slider">
+           <marquee behavior="" direction="">
+         <div class="slides" >
+                <img src="./sir.jpg" alt="Sir">
+                <img src="./one.jpg" alt="Class">
+                <img src="./two.jpg" alt="Students">
+                <img src="./thre.jpg" alt="Activity">
+                <img src="./four.jpg" alt="Library">
+                <img src="./book celarabation.jpg" alt="Books">
+             </div>
+           </marquee>
+        </div>
+    </section>
+
+    <!-- Batch Timings -->
+    <section id="batchesTiming" class="batch-section container">
+        <h2 style="font-family:'Playfair Display', serif;color:var(--accent-1);margin-bottom:0.8rem">Our Batch Timings
+        </h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem">
+            <div
+                style="background:#fff;color:#071025;padding:0.85rem;border-radius:10px;text-align:center;font-weight:700">
+                12th Standard: 06:00 - 07:00 AM</div>
+            <div
+                style="background:#fff;color:#071025;padding:0.85rem;border-radius:10px;text-align:center;font-weight:700">
+                11th Standard: 07:00 - 08:00 AM</div>
+            <div
+                style="background:#fff;color:#071025;padding:0.85rem;border-radius:10px;text-align:center;font-weight:700">
+                12th Standard: 08:00 - 09:00 AM</div>
+            <div
+                style="background:#fff;color:#071025;padding:0.85rem;border-radius:10px;text-align:center;font-weight:700">
+                11th Standard: 09:00 - 10:00 AM</div>
+            <div
+                style="background:#fff;color:#071025;padding:0.85rem;border-radius:10px;text-align:center;font-weight:700">
+                12th Standard: 04:00 - 05:00 PM</div>
+            <div
+                style="background:#fff;color:#071025;padding:0.85rem;border-radius:10px;text-align:center;font-weight:700">
+                11th Standard: 05:00 - 06:00 PM</div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features-section container">
+        <div style="display:grid;gap:1rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+                <h2 style="font-family:'Playfair Display', serif;color:white">Courses & Features</h2>
+                <div class="links">
+                    <a class="btn-primary" href="https://forms.gle/yFng81EXos8CEryP7" target="_blank"
+                        rel="noopener">Admission Form</a>
+                </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
+                <div
+                    style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:12px">
+                    Basic English Foundation</div>
+                <div
+                    style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:12px">
+                    Comprehensive Grammar</div>
+                <div
+                    style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:12px">
+                    Literature Guidance</div>
+                <div
+                    style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:12px">
+                    Mock Tests & Practice</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Marathon -->
+    <section id="about" class="container" style="margin-top:1rem">
+        <div style="display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap">
+            <div
+                style="flex:1;min-width:220px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:12px">
+                <h3 style="font-family:'Playfair Display',serif;color:var(--accent-1)">Sunday Marathon Class</h3>
+                <p style="color:var(--muted)">4 Hours Intensive Learning — chapter-wise marathon classes, doubt-clearing
+                    and practice sets.</p>
+            </div>
+            <div>
+                <a class="btn-primary" href="#contact">Join Marathon</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section container">
+        <h2 style="font-family:'Playfair Display', serif;color:var(--accent-1)">Contact Us</h2>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.8rem">
+            <div
+                style="background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:0.8rem;border-radius:10px">
+                📞 <a href="tel:7903624906"
+                    style="color:var(--accent-1);font-weight:800;text-decoration:none">7903624906</a></div>
+            <div
+                style="background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:0.8rem;border-radius:10px">
+                📧 <a href="mailto:mauryaenglish@gmail.com"
+                    style="color:var(--muted);text-decoration:none">mauryaenglish@gmail.com</a></div>
+            <div
+                style="background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:0.8rem;border-radius:10px">
+                🔗 <a href="https://www.instagram.com/aryan_0_maurya" target="_blank" rel="noopener"
+                    style="color:var(--muted);text-decoration:none">Instagram</a></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        &copy; 2025 Maurya English Institute Jehanabad. All Rights Reserved.
+    </footer>
+
+    <div class="float-contact" role="button" aria-label="WhatsApp contact">
+        <a href="https://wa.me/917903624906?text=Hello%20Maurya%20English%20Institute" target="_blank" rel="noopener"
+            style="color:white;text-decoration:none;font-weight:800">💬 WhatsApp</a>
+    </div>
+
+    <script>
+        // Mobile nav toggle
+        function toggleMenu() {
+            const mn = document.getElementById('mobileNav');
+            const btn = document.querySelector('.menu-toggle');
+            const isOpen = mn.style.display === 'block';
+            mn.style.display = isOpen ? 'none' : 'block';
+            btn.setAttribute('aria-expanded', String(!isOpen));
+        }
+
+        // Counters animation
+        (function () {
+            const easeOut = t => 1 - Math.pow(1 - t, 3);
+            function animate(id, to, duration, delay = 0) {
+                const el = document.getElementById(id);
+                let start = null;
+                function frame(ts) {
+                    if (!start) start = ts;
+                    const progress = Math.min((ts - start - delay) / duration, 1);
+                    if (progress < 0) { requestAnimationFrame(frame); return }
+                    const value = Math.floor(easeOut(progress) * to);
+                    el.textContent = value;
+                    if (progress < 1) requestAnimationFrame(frame);
+                }
+                requestAnimationFrame(frame);
+            }
+            animate('c1', 450, 1400, 200);
+            animate('c2', 12, 1400, 400);
+            animate('c3', 6, 1400, 600);
+        })();
+
+        // Slider simple loop
+        (function () {
+            const slides = document.getElementById('slides');
+            if (!slides) return;
+            const imgs = slides.querySelectorAll('img');
+            const total = imgs.length;
+            // duplicate content for seamless scroll
+            slides.innerHTML += slides.innerHTML;
+            let x = 0;
+            const speed = 0.4; // px per frame
+            function step() {
+                x -= speed;
+                slides.style.transform = `translateX(${x}px)`;
+                // reset
+                const width = imgs[0] ? imgs[0].clientWidth : 240;
+                if (Math.abs(x) >= width * total) { x = 0; }
+                requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+            window.addEventListener('resize', () => { });
+        })();
+
+        // Respect reduced motion
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (reduce.matches) {
+            document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); });
+        }
+
+        // On small devices, pause background video to save bandwidth
+        const bg = document.getElementById('bgVideo');
+        function handleVisibility() {
+            if (!bg) return;
+            const small = window.matchMedia('(max-width:600px)').matches;
+            if (small) { bg.pause(); } else { if (bg.paused) bg.play(); }
+        }
+        window.addEventListener('resize', handleVisibility);
+        document.addEventListener('DOMContentLoaded', handleVisibility);
+    </script>
+
+</body>
+
+</html>
