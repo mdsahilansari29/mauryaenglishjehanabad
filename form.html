@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maurya English Admission — Form with Receipt & Admin Excel</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+
+  <style>
+    :root{
+      --bg:#0b1220; --card:#071226; --accent:#4f46e5; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+      --radius:12px; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 10%, rgba(79,70,229,0.12), transparent), radial-gradient(900px 500px at 90% 90%, rgba(6,182,212,0.08), transparent), linear-gradient(180deg,#07102a 0%, #071428 60%);color:#e6eef8}
+    .wrap{max-width:960px;margin:34px auto;padding:26px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;box-shadow:0 12px 40px rgba(2,6,23,0.6);}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 18px;color:var(--muted)}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .full{grid-column:1 / -1}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type=text], input[type=email], input[type=date], select, textarea, input[type=file]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit;font-size:14px}
+    textarea{min-height:100px;resize:vertical}
+    .muted{font-size:12px;color:var(--muted);margin-top:6px}
+    .actions{display:flex;gap:10px;align-items:center}
+    button{background:var(--accent);border:0;color:white;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
+    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+    .card{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .preview{display:flex;flex-direction:column;gap:8px}
+    .roll{font-family:monospace;font-size:18px;padding:10px 12px;border-radius:8px;background:rgba(0,0,0,0.18);min-width:220px}
+    .hint{font-size:12px;color:var(--muted)}
+    .success{color:#7ee787}
+    .error{color:#ffb4b4}
+    .photo-preview{width:100px;height:100px;border-radius:8px;object-fit:cover;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02)}
+    .sig-wrap{display:flex;gap:8px;align-items:flex-start}
+    canvas{border-radius:8px;background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.12));border:1px solid rgba(255,255,255,0.02)}
+    .admin-row{display:flex;gap:8px;align-items:center;justify-content:flex-end}
+    @media (max-width:900px){form{grid-template-columns:1fr} .wrap{margin:18px;padding:16px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="logo">M.E.J</div>
+      <div>
+        <h1>MAURYA ENGLISH ADMISSION FORM</h1>
+        <p class="lead">Form bhar kar submit karen. Submit ke baad admission receipt PDF download ho jayegi.</p>
+      </div>
+    </header>
+
+    <!-- --- Replace these constants below with your centre details if you want --- -->
+    <script>
+      // Configure your institute details and admin PIN here:
+      const INSTITUTE = {
+        name: "Maurya English Tuition Centre",
+        address: "Kumhrar Road, Patna, Bihar - 800026",
+        phone: "9123456789"
+      };
+      // Admin PIN (change as you like)
+      const ADMIN_PIN = "2468";
+    </script>
+
+    <form id="admissionForm" autocomplete="off" novalidate>
+      <div class="card full">
+        <label for="program">Program / Department</label>
+        <select id="program" required>
+          <option value="11TH-ENG">ENGLISH (11th)</option>
+          <option value="12TH-ENG">ENGLISH (12th)</option>
+          <option value="12TH-HIN">HINDI (12th HINDI)</option>
+          <option value="12TH-CRS">ENGLISH (12th CRASS COURSE)</option>
+        </select>
+      </div>
+
+      <div class="card">
+        <label for="firstName">First name</label>
+        <input id="firstName" type="text" required maxlength="40" />
+      </div>
+
+      <div class="card">
+        <label for="lastName">Last name</label>
+        <input id="lastName" type="text" maxlength="40" />
+      </div>
+
+      <div class="card">
+        <label for="fatherName">Father's name</label>
+        <input id="fatherName" type="text" required maxlength="40" />
+      </div>
+
+      <div class="card">
+        <label for="motherName">Mother's name</label>
+        <input id="motherName" type="text" maxlength="40" />
+      </div>
+      
+      <div class="card">
+        <label for="dob">Date of birth</label>
+        <input id="dob" type="date" required />
+      </div>
+
+      <div class="card">
+        <label for="gender">Gender</label>
+        <select id="gender" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="card">
+        <label for="email">Email</label>
+        <input id="email" type="email" required />
+      </div>
+
+      <div class="card">
+        <label for="phone">Phone</label>
+        <input id="phone" type="text" pattern="\\d{7,15}" placeholder="digits only" />
+        <div class="muted">Optional — 7 to 15 digits.</div>
+      </div>
+
+      <div class="card">
+        <label for="aadhaar">Aadhaar Number</label>
+        <input id="aadhaar" type="text" inputmode="numeric" maxlength="12" placeholder="12 digits" />
+        <div class="muted">Enter 12-digit Aadhaar (numbers only). We'll mask it when displayed to students.</div>
+      </div>
+
+      <div class="card">
+        <label for="year">Admission Year</label>
+        <select id="year"></select>
+      </div>
+
+      <div class="card full">
+        <label for="address">Postal Address</label>
+        <textarea id="address" maxlength="500" placeholder="House / Street / City / State / PIN"></textarea>
+      </div>
+
+      <div class="card">
+        <label for="timeSlot">Preferred Time Slot</label>
+        <select id="timeSlot">
+          <option value="06:07 AM">06:07 12th AM</option>
+          <option value="07:08 AM">07:08 11th AM</option>
+          <option value="08:09 AM">08:09 12th AM</option>
+          <option value="09:10 AM">09:10 11th AM</option>
+          <option value="10:11 AM">10:11 12th HINDI AM</option>
+          <option value="04:05 PM">04:05 12th PM</option>
+        </select>
+        <div class="muted">Choose a slot (AM/PM times included).</div>
+      </div>
+
+      <div class="card">
+        <label for="photo">Passport Photo (front)</label>
+        <input id="photo" type="file" accept="image/*" />
+        <div style="margin-top:8px;display:flex;gap:8px;align-items:center"><img id="photoPreview" class="photo-preview" alt="photo preview" src="" /></div>
+      </div>
+
+      <div class="card full">
+        <label>Signature (draw below)</label>
+        <div class="sig-wrap">
+          <canvas id="sigCanvas" width="420" height="120"></canvas>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button type="button" id="clearSig" class="ghost">Clear</button>
+            <div class="muted">Draw with mouse (desktop) or finger (mobile). We'll save it with the application.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card full">
+        <label>Roll number (unique ID)</label>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <div class="roll" id="rollPreview">—</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="actions">
+              <button type="button" id="generateBtn">Generate (manual)</button>
+              <button type="button" id="copyBtn" class="ghost">Copy</button>
+              <button type="button" id="downloadBtn" class="ghost">Download JSON</button>
+            </div>
+            <div class="hint">Roll format: <code>YYYY-PROG-XXXX</code>. By default a roll is generated <strong>after you submit</strong>, but you may generate it manually first.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="full" style="display:flex;gap:10px;justify-content:flex-end">
+        <button type="submit">Submit Application</button>
+        <button type="button" id="resetBtn" class="ghost">Reset Form</button>
+      </div>
+    </form>
+
+    <section style="margin-top:18px;display:grid;grid-template-columns:1fr 320px;gap:14px">
+      <div class="card">
+        <h3 style="margin:0 0 10px 0">Latest Submission</h3>
+        <div id="latest" class="preview">No submissions yet.</div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 10px 0">Admin Controls</h3>
+        <div id="storedCount">0 applicant(s) stored</div>
+        <div style="margin-top:8px" class="admin-row">
+          <button id="adminBtn" class="ghost">Admin Login</button>
+          <!-- Export button hidden by default; shown only after admin unlock -->
+          <button id="exportAllBtn" class="ghost" style="display:none">Export All as Excel</button>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:16px;text-align:center;color:var(--muted);font-size:13px">Note: This demo stores data locally for prototyping. For production use, implement server-side storage, validation, and security (esp. for personal IDs & photos).</footer>
+  </main>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    // ---------- Utility & Init ----------
+    const $ = id => document.getElementById(id);
+    (function populateYears(){
+      const sel = $('year');
+      const now = new Date();
+      const current = now.getFullYear();
+      for(let y = current; y <= current + 2; y++){
+        const opt = document.createElement('option'); opt.value = y; opt.textContent = y; sel.appendChild(opt);
+      }
+    })();
+
+    const APPLICANTS_KEY = 'ia_applicants_v2';
+
+    function loadApplicants(){ try{ const raw = localStorage.getItem(APPLICANTS_KEY); return raw ? JSON.parse(raw) : []; }catch(e){ return []; } }
+    function saveApplicants(list){ localStorage.setItem(APPLICANTS_KEY, JSON.stringify(list)); refreshStoredCount(); }
+    function refreshStoredCount(){ const list = loadApplicants(); $('storedCount').textContent = list.length + ' applicant(s) stored'; }
+
+    function escapeHtml(s){ return String(s).replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
+
+    function maskAadhaar(a){ if(!a) return ''; return a.replace(/\d(?=\d{4})/g, '*'); }
+
+    function showLatest(app){ const div = $('latest'); if(!app){ div.innerHTML = '<div class="muted">No submissions yet.</div>'; return; }
+      const photo = app.photo ? `<img src="${app.photo}" class="photo-preview" style="width:70px;height:70px;object-fit:cover;border-radius:6px;margin-right:8px"/>` : '';
+      const sigImg = app.signature ? `<div style="margin-top:8px"><img src="${app.signature}" style="height:48px;border-radius:6px"/></div>` : '';
+      div.innerHTML = `\n        <div style="display:flex;align-items:center;gap:12px"><div><strong>${escapeHtml(app.firstName || '')} ${escapeHtml(app.lastName || '')}</strong><div class="muted">${escapeHtml(app.email || '')} • ${escapeHtml(app.program)} • Roll: <span class="success">${app.roll}</span></div></div>${photo}</div>
+        <div style="margin-top:8px;font-size:13px">${escapeHtml(app.address || '')}</div>
+        <div class="muted" style="margin-top:6px">Aadhaar: ${maskAadhaar(app.aadhaar || '')} • Slot: ${escapeHtml(app.timeSlot || '')}</div>
+        ${sigImg}
+      `; }
+
+    // Roll generation: YYYY-PROG-XXXX sequential per year+program
+    function generateRoll(year, program){ const seqKey = `ia_seq_${year}_${program}`; let seq = 1; try{ seq = Number(localStorage.getItem(seqKey) || '0') + 1; localStorage.setItem(seqKey, String(seq)); }catch(e){ seq = Math.floor(Math.random()*9000)+1000; } const padded = String(seq).padStart(4,'0'); return `${year}-${program}-${padded}`; }
+    function fallbackUID(){ const t = Date.now().toString(36); const r = Math.random().toString(36).slice(2,8); return `UID-${t}-${r}`.toUpperCase(); }
+
+    // DOM refs
+    const generateBtn = $('generateBtn'); const copyBtn = $('copyBtn'); const downloadBtn = $('downloadBtn'); const resetBtn = $('resetBtn'); const form = $('admissionForm'); const rollPreview = $('rollPreview');
+
+    function currentFormData(){ return {
+      program: $('program').value,
+      firstName: $('firstName').value.trim(), lastName: $('lastName').value.trim(), dob: $('dob').value,
+      email: $('email').value.trim(), phone: $('phone').value.trim(), aadhaar: $('aadhaar').value.trim(),
+      year: $('year').value, address: $('address').value.trim(), timeSlot: $('timeSlot').value, gender: $('gender').value,
+      fatherName: $('fatherName').value.trim(), motherName: $('motherName').value.trim()
+    }}
+
+    // Photo preview handling
+    $('photo').addEventListener('change', (e)=>{
+      const f = e.target.files && e.target.files[0]; const img = $('photoPreview'); if(!f){ img.src=''; img.style.display='none'; return; }
+      const reader = new FileReader(); reader.onload = ev => { img.src = ev.target.result; img.style.display='inline-block'; }; reader.readAsDataURL(f);
+    });
+
+    // Signature canvas
+    const sigCanvas = $('sigCanvas'); const sigCtx = sigCanvas.getContext('2d'); let drawing=false; let lastPos=null;
+    function getPos(e){ const rect = sigCanvas.getBoundingClientRect(); if(e.touches) e = e.touches[0]; return {x: (e.clientX - rect.left), y: (e.clientY - rect.top)}; }
+    sigCanvas.addEventListener('pointerdown', (e)=>{ drawing=true; lastPos=getPos(e); sigCtx.lineWidth=2.4; sigCtx.lineCap='round'; sigCtx.strokeStyle='#fff'; });
+    sigCanvas.addEventListener('pointermove', (e)=>{ if(!drawing) return; const p = getPos(e); sigCtx.beginPath(); sigCtx.moveTo(lastPos.x,lastPos.y); sigCtx.lineTo(p.x,p.y); sigCtx.stroke(); lastPos=p; });
+    ['pointerup','pointercancel','pointerout'].forEach(evt=> sigCanvas.addEventListener(evt, ()=>{ drawing=false; lastPos=null; }));
+    $('clearSig').addEventListener('click', ()=>{ sigCtx.clearRect(0,0,sigCanvas.width,sigCanvas.height); });
+
+    // Manual generate
+    generateBtn.addEventListener('click', ()=>{
+      const data = currentFormData(); if(!data.year || !data.program){ alert('Select Program and Year first.'); return; }
+      try{ const roll = generateRoll(data.year, data.program); rollPreview.textContent = roll; rollPreview.dataset.roll = roll; }catch(e){ const roll = fallbackUID(); rollPreview.textContent = roll; rollPreview.dataset.roll = roll; }
+    });
+
+    copyBtn.addEventListener('click', ()=>{ const r = rollPreview.dataset.roll; if(!r){ alert('Generate a roll number first.'); return; } navigator.clipboard?.writeText(r).then(()=>{ alert('Copied: ' + r); }).catch(()=>{ prompt('Copy manually:', r); }); });
+
+    downloadBtn.addEventListener('click', ()=>{
+      const r = rollPreview.dataset.roll; if(!r){ alert('Generate roll first.'); return; }
+      const data = currentFormData(); data.roll = r; const photo = $('photoPreview').src; if(photo) data.photo = photo; data.signature = sigCanvas.toDataURL();
+      const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = (data.roll || 'application') + '.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    resetBtn.addEventListener('click', ()=>{ if(confirm('Reset the form?')){ form.reset(); rollPreview.textContent='—'; delete rollPreview.dataset.roll; $('photoPreview').src=''; $('photoPreview').style.display='none'; sigCtx.clearRect(0,0,sigCanvas.width,sigCanvas.height); } });
+
+    // Submit: validate, generate roll, save, show latest & download receipt
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = currentFormData();
+      if(!data.firstName || !data.email || !data.dob){ alert('Please fill required fields: First name, Email, DOB.'); return; }
+      if(data.aadhaar && !/^\d{12}$/.test(data.aadhaar)){ alert('Aadhaar must be 12 digits.'); return; }
+
+      // generate roll now (auto)
+      const roll = (() => { try{ return generateRoll(data.year, data.program); }catch(e){ return fallbackUID(); } })();
+      data.roll = roll;
+
+      // photo + signature
+      const photoSrc = $('photoPreview').src; if(photoSrc) data.photo = photoSrc;
+      const sigData = sigCanvas.toDataURL();
+      // check if signature not empty
+      try{ const imgData = sigCtx.getImageData(0,0,sigCanvas.width,sigCanvas.height).data; let nonEmpty=false; for(let i=0;i<imgData.length;i+=4){ if(imgData[i+3]!==0){ nonEmpty=true; break; } } if(nonEmpty) data.signature = sigData; }catch(e){ /*ignore*/ }
+
+      // save
+      const list = loadApplicants(); const dup = list.find(x => x.email && x.email.toLowerCase() === data.email.toLowerCase());
+      if(dup){ if(!confirm('An application with this email exists. Proceed to create a new entry?')) return; }
+      list.unshift({...data, createdAt: new Date().toISOString()}); saveApplicants(list); showLatest(data);
+      rollPreview.textContent = roll; rollPreview.dataset.roll = roll;
+
+      // generate & download receipt PDF
+      generateReceiptPDF(data).then(()=> {
+        alert('Application saved. Receipt downloaded. Roll: ' + roll);
+      }).catch((err)=>{
+        console.error(err);
+        alert('Application saved. (Receipt generation failed) Roll: ' + roll);
+      });
+    });
+
+    // Export Excel (admin-only; shown after PIN)
+    $('exportAllBtn').addEventListener('click', ()=>{
+      const list = loadApplicants(); if(!list.length){ alert('No applicants to export.'); return; }
+      // create a copy and ensure fields order & include full aadhaar (admin sees)
+      const keys = ['roll','firstName','lastName','fatherName','motherName','gender','dob','email','phone','aadhaar','program','year','timeSlot','address','createdAt'];
+      // Map to objects
+      const exportData = list.map(it => {
+        const obj = {};
+        keys.forEach(k => obj[k] = it[k] || '');
+        return obj;
+      });
+      const worksheet = XLSX.utils.json_to_sheet(exportData);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Applicants");
+      XLSX.writeFile(workbook, "ApplicantsData.xlsx");
+    });
+
+    // Admin login to reveal export button (simple PIN prompt)
+    $('adminBtn').addEventListener('click', ()=>{
+      const pin = prompt('Enter Admin PIN to unlock export (admin only):');
+      if(pin === null) return;
+      if(pin === ADMIN_PIN){
+        $('exportAllBtn').style.display = 'inline-block';
+        alert('Admin Unlocked — Export button visible.');
+      } else {
+        alert('Incorrect PIN.');
+      }
+    });
+
+    // Receipt PDF generator
+    async function generateReceiptPDF(data){
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+      const left = 40;
+      let y = 60;
+
+      // Header
+      doc.setFontSize(18);
+      doc.text(INSTITUTE.name, left, y);
+      doc.setFontSize(11);
+      doc.text(INSTITUTE.address, left, y + 18);
+      doc.text('Mob: ' + INSTITUTE.phone, left, y + 36);
+
+      // Title
+      doc.setFontSize(14);
+      doc.text('Admission Receipt (Proof of Application)', left, y + 72);
+
+      // Student details block
+      const startY = y + 100;
+      doc.setFontSize(11);
+      doc.text(`Roll No: ${data.roll}`, left, startY);
+      doc.text(`Name: ${data.firstName} ${data.lastName}`, left, startY + 18);
+      doc.text(`Father: ${data.fatherName || ''}`, left, startY + 36);
+      doc.text(`Mother: ${data.motherName || ''}`, left, startY + 54);
+      doc.text(`Gender: ${data.gender || ''}`, left, startY + 72);
+      doc.text(`DOB: ${data.dob || ''}`, left, startY + 90);
+      doc.text(`Program: ${data.program || ''}`, left, startY + 108);
+      doc.text(`Preferred Slot: ${data.timeSlot || ''}`, left, startY + 126);
+      doc.text(`Email: ${data.email || ''}`, left, startY + 144);
+      doc.text(`Phone: ${data.phone || ''}`, left, startY + 162);
+      // Address (wrap)
+      const addr = data.address || '';
+      const addrLines = doc.splitTextToSize('Address: ' + addr, 400);
+      doc.text(addrLines, left, startY + 190);
+
+      // Aadhaar masked on receipt for student privacy
+      const aad = data.aadhaar ? (data.aadhaar.replace(/\d(?=\d{4})/g, '*')) : '';
+      doc.text(`Aadhaar: ${aad}`, left, startY + 240);
+
+      // Photo on right
+      if(data.photo){
+        try{
+          // scale photo to fit box
+          doc.addImage(data.photo, 'JPEG', 420, startY - 10, 120, 120);
+        }catch(e){
+          // some images may be PNG; try PNG
+          try{ doc.addImage(data.photo, 'PNG', 420, startY - 10, 120, 120); }catch(err){}
+        }
+      }
+
+      // Signature bottom-right
+      if(data.signature){
+        try{
+          doc.addImage(data.signature, 'PNG', 420, startY + 140, 120, 50);
+        }catch(e){}
+      }
+
+      // Footer
+      const issued = new Date().toLocaleString();
+      doc.setFontSize(10);
+      doc.text(`Issued on: ${issued}`, left, 760);
+      doc.text('This is an electronically generated admission receipt for verification only.', left, 778);
+
+      // Save
+      const fname = `${data.roll || 'application'}_Receipt.pdf`;
+      doc.save(fname);
+    }
+
+    // Init UI state
+    refreshStoredCount(); const stored = loadApplicants(); if(stored.length) showLatest(stored[0]);
+  </script>
+</body>
+</html>
